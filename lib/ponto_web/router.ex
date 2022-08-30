@@ -18,7 +18,6 @@ defmodule PontoWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
-    get "/app/today", TodayController, :index
   end
 
   # Other scopes may use custom stacks.
