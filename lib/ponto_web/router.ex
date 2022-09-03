@@ -1,5 +1,6 @@
 defmodule PontoWeb.Router do
   use PontoWeb, :router
+  import PontoWeb.TodayController
 
   pipeline :browser do
     plug :accepts, ["html"]
@@ -52,5 +53,11 @@ defmodule PontoWeb.Router do
 
       forward "/mailbox", Plug.Swoosh.MailboxPreview
     end
+  end
+
+  scope "/api/app", PontoWeb do
+    pipe_through :api
+
+    get "/task_gen", TodayController, :task_gen
   end
 end
