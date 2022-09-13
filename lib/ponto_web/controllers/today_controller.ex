@@ -7,9 +7,11 @@ defmodule PontoWeb.TodayController do
   def index(conn, _params) do
     render(conn, "today.html")
   end
+   def task_gen(conn, _params) do
 
-  def task_gen(conn, _params) do
-    task = list_tasks()
-    render(conn, "task_gen.json", taskname: taskname)
-  end
+    TodaySchema.create_task(conn)
+    
+
+    
+   end
 end
