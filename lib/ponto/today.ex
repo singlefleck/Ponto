@@ -1,6 +1,6 @@
 defmodule Ponto.TodaySchema do
   import Ecto.Query, warn: false
-  
+
   alias Ponto.Repo
 
   alias Ponto.TodaySchema.Task
@@ -15,18 +15,16 @@ defmodule Ponto.TodaySchema do
     |> Repo.insert()
   end
 
-
-
-def get_task_id(id) do
-  Repo.get!(Task,id)
-end
-   
-
-
-   def delete_task(id) do
-    id_data = get_task_id(id)
-    Repo.delete(id_data)
-    IO.puts("'#id' deleted")
+  def get_task_id(id) do
+    Repo.get!(Task, id)
   end
 
+  def delete_task(id) do
+    id_data = get_task_id(id)
+    Repo.delete(id_data)
+  end
+
+  def get_task(taskname) do
+    Repo.get_by!(Task, taskname)
+  end
 end

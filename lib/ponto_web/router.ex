@@ -58,6 +58,11 @@ defmodule PontoWeb.Router do
   scope "/api/app", PontoWeb do
     pipe_through :api
 
-    get "/task_gen", TodayController, :task_gen
+    post "/task_gen", TodayController, :task_gen
+    get "/all_tasks", TodayController, :all_tasks
+
+    post "/fetch_by_id", TodayController, :fetch_by_id
+
+    post "/delete_task_by_id", TodayController, :delete_task_by_id
   end
 end
