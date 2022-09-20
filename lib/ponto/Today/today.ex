@@ -1,6 +1,7 @@
 defmodule Ponto.TodaySchema.Task do
   use Ecto.Schema
   import Ecto.Changeset
+  @primary_key {:task_id, :binary_id, autogenerate: true}
 
   schema "task" do
     field :task, :string

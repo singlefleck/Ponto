@@ -25,6 +25,6 @@ defmodule Ponto.TodaySchema do
   end
 
   def get_task(taskname) do
-    Repo.get_by!(Task, taskname)
+    Repo.get_by!(Task, %{taskname: taskname})
   end
 end
