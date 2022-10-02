@@ -27,12 +27,17 @@ defmodule PontoWeb.TodayController do
   end
 
   def fetch_by_id(conn, params) do
-    no_struct_data =
-      params
-      |> Map.get("id")
-      |> TodaySchema.get_task_id()
-      |> Map.drop([:__meta__, :__struct__])
+    if do
+      no_struct_data =
+        params
+        |> put_status(200)
+        |> Map.get("id")
+        |> TodaySchema.get_task_id()
+        |> Map.drop([:__meta__, :__struct__])
 
-    json(conn, no_struct_data)
+      json(conn, no_struct_data)
+    else
+      put_status(422)
+    end
   end
 end

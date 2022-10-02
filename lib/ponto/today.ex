@@ -27,4 +27,8 @@ defmodule Ponto.TodaySchema do
   def get_task(taskname) do
     Repo.get_by!(Task, %{taskname: taskname})
   end
+
+  def tasks_count do
+    Enum.count(list_tasks)
+  end
 end
