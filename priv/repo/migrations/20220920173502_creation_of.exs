@@ -11,6 +11,7 @@ defmodule Ponto.Repo.Migrations.CreationOf do
 
       timestamps()
     end
+    
 
 
   end
